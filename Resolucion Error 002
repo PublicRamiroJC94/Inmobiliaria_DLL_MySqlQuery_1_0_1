@@ -1,0 +1,10 @@
+IdOferta INT UNSIGNED NOT NULL AUTO_INCREMENT, `Fecha Lanzamiento` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP 
+, `Fecha Caducidad` TIMESTAMP NOT NULL, Descripcion VARCHAR(20) NOT NULL, PRIMARY KEY (IdOferta)
+
+Yo pensaba que DEFAULT tenia por defecto algun valor por lo que estaba escribiendo, `Fecha Caducidad` TIMESTAMP NOT NULL DEFAULT, Descripcion
+Por lo que tomaba como DEFAULT a la Coma (DEFAULT ',').
+
+DEFAULT NO TIENE UN VALOR POR DEFAULT, MI CONFUCION INICIO CUANDO ESCRIBIA "Fecha TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  "
+, CURRENT_TIMESTAMP es utilizado para indicar la hora actual, por lo que en el codigo queda como DEFAULT "CURRENT_TIMESTAMP", Toma 
+Por defecto la hora actual, Si a DEFAULT no le pasamos ningun valor, va a utilizar lo que le siga como referencia.
+

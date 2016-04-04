@@ -1,0 +1,10 @@
+El Error era que estaba queriendo crear un 'schematic' cuando ya estaba creado, este Error se soluciono utilizando la siguiente linea.
+
+DROP DATABASE IF EXISTS `inmobiliaria_DB`;
+CREATE DATABASE IF NOT EXISTS`inmobiliaria_DB`;
+
+Primero se revisa que no exista una DB con el mismo nombre y en todo caso sera eliminada con el DROP DATABASE.
+Segundo se crea una DATABASE si es que no existe una DB con el mismo nombre ( Se supone que el IF NOT EXISTS esta al pedo por que 
+ya borramos la posible DB con el mismo nombre pero por las dudas).
+Tercero seguramente se preguntaran por que estamos hablando de DATABASE si estabamos hablando de Schematic, en ciertas DB schematic se
+utiliza para otras cosas pero en el caso de MySql, schematic es sinonimo de DB.

@@ -1,0 +1,35 @@
+ALTER TABLE Inmuebles;
+ADD FOREIGN KEY (IdTipoInmueble) REFERENCES TipoInmueble (IdTipoInmueble), FOREIGN KEY (IdCliente) REFERENCES Clientes (IdCliente);
+-----------------------------------------------------------------------
+ALTER TABLE Operaciones;
+ADD FOREIGN KEY (IdInmueble) REFERENCES Inmuebles (IdInmueble), FOREIGN KEY (IdCliente) REFERENCES Clientes (IdCliente), FOREIGN KEY (IdCliente) REFERENCES Clientes (IdCliente), FOREIGN KEY (`IdTipo Of-Op`) REFENCES `Tipo Of-Op` (`IdTipo Of-Op`), FOREIGN KEY (IdOferta) REFENCES (IdOferta);
+-----------------------------------------------------------------------
+ALTER TABLE Ofertas;
+ADD FOREIGN KEY (`IdTipo Of-Op`) REFERENCES `Tipo Of-Op` (`IdTipo Of-Op`);
+
+
+
+Primero la syntax de ALTER es (Ej):
+ALTER TABLE `tablename` ADD `new_col_name` INT NOT NULL DEFAULT 0;
+
+Por lo que si vemos nosotros pusimos:
+ALTER TABLE Inmuebles;
+ALTER TABLE Operaciones;
+ALTER TABLE Ofertas;
+
+el ';' esta demas ya que no se comporta como un USE DATABASE en el cual se le indica que estamos usando la DB.
+La syntax de ALTER es mas larga y en la cual tenemos que decir que queremos agregar.
+
+por lo que tendria que ser:
+ALTER TABLE Inmuebles
+ADD FOREIGN KEY (IdTipoInmueble) REFERENCES TipoInmueble (IdTipoInmueble), FOREIGN KEY (IdCliente) REFERENCES Clientes (IdCliente);
+
+Hasta aca vamos perfecto.
+
+Segundo nosotros estamos agregando varios FOREING KEY PERO estamos poniendo un solo ADD en el inicio de la linea.
+El comportamiento de ADD no es general en toda la linea, por lo que escribiendo ADD al inicio de la linea no quiere decir que va
+a agregar lo " siguiente: [...] " , sino que se comporta asi " ADD '[...]', ADD '[...]', etc '.
+
+Por lo que tendria que escribirse asi:
+ALTER TABLE Inmuebles
+ADD FOREIGN KEY (IdTipoInmueble) REFERENCES TipoInmueble (IdTipoInmueble), ADD FOREIGN KEY (IdCliente) REFERENCES Clientes (IdCliente);

@@ -1,0 +1,17 @@
+ADD FOREIGN KEY (IdInmueble) REFERENCES Inmuebles (IdInmueble), ADD FOREIGN KEY (IdCliente) REFERENCES Clientes (IdCliente),
+ADD FOREIGN KEY (IdCliente) REFERENCES Clientes (IdCliente), ADD FOREIGN KEY (`IdTipo Of-Op`) REFENCES `Tipo Of-Op` (`IdTipo Of-Op`),
+ADD FOREIGN KEY (IdOferta) REFENCES (IdOferta);
+
+El Error esta en:
+ADD FOREIGN KEY (`IdTipo Of-Op`) REFENCES `Tipo Of-Op` (`IdTipo Of-Op`)
+
+Ya que Funcionalmente tiene sentido decir REFENCES `Tipo Of-Op`.
+Lo que ocurre es que para que la Tabla Tipo Of-Op tenga el espaciado agrege las comillas invertidas para que me tome como nombre `[...]` todo
+lo ingresado dentro de ellas, ocurre que:
+"
+Normalmente en bases de datos los nombres de las tablas y los nombres de las columnas no llevan espacios porque esto genera problemas
+(Referencia: http://www.aprenderaprogramar.com/foros/index.php?topic=2713.0 )
+"
+
+Por lo que tener un nombre con espacios me genera problemas.
+Solucion, cambiar " `Tipo Of-Op` " por "Tipo_Of-Op".

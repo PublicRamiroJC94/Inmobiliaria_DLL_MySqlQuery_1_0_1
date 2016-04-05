@@ -1,0 +1,13 @@
+No pude resolver el tema de la syntaxis del ALTER, asi que voy a hacerlo de la forma mas facil y eficiente, que es ordenando los CREATE
+de tal forma que pueda crear la tabla conpleta incluyendo el FOREIGN KEY.
+
+El orden de creacion seria:
+
+1	Tipo Inmueble
+2	Tipo Of-Op
+3	Inmobiliaria
+4	Cliente
+5	Oferta
+6	Operaciones
+7	Inmueble
+
